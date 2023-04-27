@@ -1,28 +1,60 @@
 package StudentNameGuessing;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
+import java.io.File;
 
-public class StudentNameGuessingGame {
-	String studentNames[] = { "Aleena", "Angel", "Asha", "Clemin", "Gopesh", "Hamneet", "Jimna", "Jobin", "Jude",
-			"kamaldeep", "Manpreets", "Manpreetk", "Mariya", "Neelam", "Namitha", "Nisha", "Parminder", "Rajat", "Rojy",
-			"Sojan", "Sucharita", "Vindhuja" };
-	Scanner sc = new Scanner(System.in);
-	Random rand = new Random();
-	String student = studentNames[rand.nextInt(studentNames.length)];
+public class StudentNameGuessingGame
 
+{
+	
+	
 	int points = 5;
 	int wrongGuess = 0;
 	boolean flag = false;
 	// int index;
 	int numGuessLetters = 0;
-	char[] guessedLetter = new char[student.length()];
+	//private String randomName;
+	int index;
+//	String randomName;
+	String randomName;
+	char[] guessedLetter = new char[randomName.length()];
 	// To keep track of the guess letters
+	Scanner sc = new Scanner(System.in);
+	Random rand = new Random();
+	 
 
+	
+	
+//List<String>studentNames;
+
+	StudentNameGuessingGame() throws IOException
+	{
+		
+	List<String>studentNames=Files.readAllLines(Paths.get("C:\\Users\\santa\\OneDrive\\Desktop\\sucharita\\name%20list.docx"));	
+	int index=rand.nextInt(studentNames.size());
+	this.randomName=studentNames.get(index);
+	}
+	//System.out.println("Welcome to the Student Name Guessing Game "));
+	//System.out.println(" \n You have 5 points to win the Game :Good Luck ");
+//	String studentNames[] = { "Aleena", "Angel", "Asha", "Clemin", "Gopesh", "Hamneet", "Jimna", "Jobin", "Jude",
+//			"kamaldeep", "Manpreets", "Manpreetk", "Mariya", "Neelam", "Namitha", "Nisha", "Parminder", "Rajat", "Rojy",
+////			"Sojan", "Sucharita", "Vindhuja" };
+//	List<String>studentNames=Files.readAllLines(Paths.get("C:\\Users\\santa\\OneDrive\\Desktop\\sucharita\\name%20list.docx"));
+	
+	
+	//int index=rand.nextInt(studentNames.size());
+	//String randomName;
+	
+
+	
 	void displayRandomName() {
-		Random rand = new Random();
+		//Random rand = new Random();
 		// int index = rand.nextInt(names.length);
 		System.out.println();
-		for (int i = 0; i < student.length(); i++) {
+		for (int i = 0; i < randomName.length(); i++) {
 
 			System.out.print(" -\t ");
 
@@ -38,7 +70,7 @@ public class StudentNameGuessingGame {
 			System.out.println("\n Guess a letter :");
 			System.out.println("You are now guessing the letter  ");
 
-			Scanner sc = new Scanner(System.in);
+			//Scanner sc = new Scanner(System.in);
 			char letter = sc.nextLine().charAt(0);
 			// String inputLetter = Character.toString(letter);
 			if (Character.isDigit(letter)) {
@@ -48,9 +80,9 @@ public class StudentNameGuessingGame {
 			// char letter = sc.next().charAt(0);
 			boolean correctGuess = false;
 
-			for (int i = 0; i < student.length(); i++) {
+			for (int i = 0; i < randomName.length(); i++) {
 
-				if (student.charAt(i) == letter) {
+				if (randomName.charAt(i) == letter) {
 					if (guessedLetter[i] == 0) {
 						guessedLetter[i] = letter;
 						numGuessLetters++;
@@ -68,7 +100,7 @@ public class StudentNameGuessingGame {
 				System.out.println("Number of Wrong guess is:: " + wrongGuess);
 
 			}
-			if (numGuessLetters == student.length()) {
+			if (numGuessLetters == randomName.length()) {
 //				System.out.println("congrats you guess the student name  " + student + " " + "correctly)");
 //				// return;
 				// flag = true;
@@ -76,7 +108,7 @@ public class StudentNameGuessingGame {
 			}
 			// }
 			System.out.print("Current guess is ");
-			for (int i = 0; i < student.length(); i++) {
+			for (int i = 0; i < randomName.length(); i++) {
 				if (guessedLetter[i] == 0) {
 					System.out.print("-");
 
@@ -96,8 +128,8 @@ public class StudentNameGuessingGame {
 
 	String checkigTheCorrectName() {
 
-		for (int i = 0; i < student.length(); i++) {
-			if (numGuessLetters == student.length()) {
+		for (int i = 0; i < randomName.length(); i++) {
+			if (numGuessLetters == randomName.length()) {
 				System.out.println("Congrats You WIN : you guess the student name  " + " " + "correctly)");
 				// return;
 				flag = true;
@@ -107,7 +139,7 @@ public class StudentNameGuessingGame {
 		if (!flag) {
 			System.out.println("Sorry you lost the Game :the student name was:" + " ");
 		}
-		return student;
+		return randomName;
 	}
 
 }
