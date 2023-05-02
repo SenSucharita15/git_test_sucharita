@@ -17,14 +17,33 @@ public class OnlineBanking extends BankOperation {
 	@Override
 	public void performTransaction() {
 		Scanner sc = new Scanner(System.in);
-		// System.out.println("Enter the password");
-		// String enteredPassword = sc.nextLine();
+		 
 		boolean flag = false;
-		System.out.println("Enter the password");
-		String enteredPassword = sc.nextLine();
-		if (enteredPassword.equals(password)) {
-			// System.out.println("1. Deposit\n 2. withdraw \n 3. View Balance");
-			// int choice = sc.nextInt();
+		int count = 0;
+		// if (enteredPin == pin && count<3) {
+		while (count < 3) {
+			System.out.println("Enter the password");
+			String enteredPassword = sc.nextLine();
+			if (enteredPassword.equals(password)) {
+
+				System.out.println(" You have logged in successfully\n");
+				break;
+			} else {
+				//System.out.println("Invalid Password Try again .Attempts remaining  :" + (3 - count));
+				count++;
+					System.out.println("Invalid Password Try again .Attempts remaining  :" + (3 - count));
+					
+			}
+		}
+		 if (count == 3) {
+			System.out.println(" \n \n  Thank You ");
+			System.out.println(" Account Locked");
+			return;
+		
+			//break;
+		}
+
+
 
 			while (!flag) {
 
@@ -63,10 +82,7 @@ public class OnlineBanking extends BankOperation {
 				}
 
 			}
-		} else {
-			System.out.println(" Invalid Passowrd try again");
-
-		}
+		
 
 		System.out.println("THANK YOU");
 	}
