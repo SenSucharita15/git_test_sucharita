@@ -2,7 +2,7 @@ package assignmentInheritance;
 
 import java.util.*;
 
-public class BankOperation {
+abstract public class BankOperation {
 
 	private double balance;
 //	String name;
@@ -44,7 +44,10 @@ public class BankOperation {
 		System.out.println("  Balance:" + balance);
 	}
 
-	public void performTransaction() {
-		System.out.println("Welcome to the Bank: operations available:1. ATM  2.Online Banking");
-	}
+	public abstract void performTransaction(); 
+//	{
+//		System.out.println("Welcome to the Bank: operations available:1. ATM  2.Online Banking");
+//	}
+	
+	public abstract void changePinPassword();
 }
