@@ -16,28 +16,46 @@ public class MainInheritance {
 		BankOperation bop=null;
 
 		if (bankingType == 1) {
-			// ATM atm = new ATM(person.getTotalFunds(), person.getPin());
-			// BankOperation bop = new BankOperation();
-			// bop.performTransaction();
-
-//Using parent class refernce variable to assign the child class object.
 			
+//Using parent class refernce variable to assign the child class object.
 			 bop = new ATM(person.getTotalFunds(), person.getPin());
+			
+			
+		//	 bop = new ATM(person.getTotalFunds(), person.getPin());
+			 
+			 System.out.println(" 1. Change Passowrd/PIN  2.Login with current Pin /Password: \n Enter your choice");
+				int choice=sc.nextInt();
+				if(choice==1)
+				{
+					 bop.changePinPassword();
+
+				}
+				else
+				//{
+					
 
 			System.out.println("  \n " + " Account holder name  " + person.getName());
 			System.out.println(" \n " + " Account No: " + person.getAccountNo());
 			bop.performTransaction();
+				//}
 		} else if (bankingType == 2) {
 			// Creating an object of parent class
 			// with reference to child class
 			 bop = new OnlineBanking(person.getTotalFunds(), person.getOnlineBankingPassword());
 
 			// Login should be used here with crediatials
+			 System.out.println(" 1. Change Passowrd  2.Login with current Pin /Password: \n Enter your choice");
+				int choice=sc.nextInt();
+				if(choice==1)
+				{
+					 bop.changePinPassword();
+
+				}
+				else
 
 			System.out.println("  \n " + " Account holder name  " + person.getName());
 			System.out.println(" \n " + " Account No: " + person.getAccountNo());
-			// OnlineBanking onlineBanking = new OnlineBanking(person.getTotalFunds(),
-			// person.getOnlineBankingPassword());
+		
 			bop.performTransaction();
 		} else {
 			System.out.println("Invalid Banking TYpe:select the correct type from the above menu");
