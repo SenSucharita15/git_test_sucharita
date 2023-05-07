@@ -39,8 +39,8 @@ public class ATM extends BankOperation {
 			System.out.println("Thank You ");
 			System.out.println(" Account Locked");
 			return;
-		
-			//break;
+
+			// break;
 		}
 
 		// System.out.println("1. Deposit\n 2. withdraw \n 3. View Balance \n 4. exit");
@@ -83,8 +83,48 @@ public class ATM extends BankOperation {
 
 		}
 
-
 		System.out.println("Thank You ");
 	}
 
+	@Override
+	public void changePinPassword()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter your current PIN:");
+		int currentPin =sc.nextInt();
+		//String choice=sc.nextLine();
+		boolean flag=false;
+		//System.out.println("Do you want to continue : YES or NO");
+		while(!flag)
+		{
+		if(currentPin==pin)
+		{
+		System.out.println("Enter the new PIN ");
+		int newPin=sc.nextInt();
+		 if(newPin!=pin && String.valueOf(newPin).length()>=4 )
+		 {
+			
+			 pin=newPin;
+			 System.out.println("Pin updated Successfully:");
+
+			 break;
+		 }
+		 else
+		 {
+			 System.out.println("Invalid Pin.Pin must be atleast 4 charcter and different from the old pin");
+		
+			 
+		  }
+	    	} 
+	 	//}
+		else 
+		 {
+		
+			 System.out.println("Incorrect Pin");
+			 flag=false;
+			 break;
+		 }
+		}
+			 
+		 }
 }
