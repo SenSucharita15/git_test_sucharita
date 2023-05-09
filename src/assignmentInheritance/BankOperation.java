@@ -12,9 +12,6 @@ abstract public class BankOperation {
 
 	}
 
-//	public BankOperation() {
-//		// TODO Auto-generated constructor stub
-//	}
 
 	public void withdraw(double amount) {
 		if (amount > 0 && amount <= balance) {
