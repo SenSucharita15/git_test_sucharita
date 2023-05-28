@@ -6,9 +6,11 @@ import java.util.*;
 public class ATM extends BankOperation {
 	private int pin;
 	// private int count;
+	private Person person1;
 
-	public ATM(double balance, int pin) {
-		super(balance);
+	public ATM(Person person, int pin) {
+		super();
+		this.person1=person;
 		this.pin = pin;
 	}
 
@@ -26,7 +28,7 @@ public class ATM extends BankOperation {
 		while (count < 3) {
 			System.out.println("Enter the pin");
 			int enteredPin = sc.nextInt();
-			if (enteredPin == pin) {
+			if (enteredPin == person1.getPin()) {
 
 				System.out.println(" You have logged in successfully\n");
 				break;
@@ -55,19 +57,20 @@ public class ATM extends BankOperation {
 			case 1:
 				System.out.println("Enter the amount to be deposited");
 				double depositAmount = sc.nextDouble();
-				deposit(depositAmount);
+				deposit(person1,depositAmount);
+				//System.out.println(person1.setBalance());
 				System.out.println(" \n want to continue Enter your choice");
 				break;
 
 			case 2:
 				System.out.println("Enter the amount to withdraw");
 				double withdrawAmount = sc.nextDouble();
-				withdraw(withdrawAmount);
+				withdraw(person1,withdrawAmount);
 				System.out.println(" \n want to continue Enter your choice");
 				break;
 
 			case 3:
-				viewBalance();
+				viewBalance(person1);
 				System.out.println(" \n want to continue Enter your choice");
 				break;
 
@@ -87,44 +90,36 @@ public class ATM extends BankOperation {
 	}
 
 	@Override
-	public void changePinPassword()
-	{
-		Scanner sc=new Scanner(System.in);
+	public void changePinPassword(Person person) {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter your current PIN:");
-		int currentPin =sc.nextInt();
-		//String choice=sc.nextLine();
-		boolean flag=false;
-		//System.out.println("Do you want to continue : YES or NO");
-		while(!flag)
-		{
-		if(currentPin==pin)
-		{
-		System.out.println("Enter the new PIN ");
-		int newPin=sc.nextInt();
-		 if(newPin!=pin && String.valueOf(newPin).length()>=4 )
-		 {
-			
-			 pin=newPin;
-			 System.out.println("Pin updated Successfully:");
+		int currentPin = sc.nextInt();
+		// String choice=sc.nextLine();
+		boolean flag = false;
+		// System.out.println("Do you want to continue : YES or NO");
+		while (!flag) {
+			if (currentPin == person.getPin()) {
+				System.out.println("Enter the new PIN ");
+				int newPin = sc.nextInt();
+				if (newPin != pin && String.valueOf(newPin).length() >= 4) {
 
-			 break;
-		 }
-		 else
-		 {
-			 System.out.println("Invalid Pin.Pin must be atleast 4 charcter and different from the old pin");
-		
-			 
-		  }
-	    	} 
-	 	//}
-		else 
-		 {
-		
-			 System.out.println("Incorrect Pin");
-			 flag=false;
-			 break;
-		 }
+					pin = newPin;
+					System.out.println("Pin updated Successfully:");
+
+					break;
+				} else {
+					System.out.println("Invalid Pin.Pin must be atleast 4 charcter and different from the old pin");
+
+				}
+			}
+			// }
+			else {
+
+				System.out.println("Incorrect Pin");
+				flag = false;
+				break;
+			}
 		}
-			 
-		 }
+
+	}
 }

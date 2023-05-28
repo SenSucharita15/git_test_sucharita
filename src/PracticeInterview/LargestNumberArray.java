@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class LargestNumberArray {
 	int i;
 	int n;
-	
+	int []arr= new int [n];
 	void largestNumber()
 	{
 	
@@ -123,8 +123,7 @@ public class LargestNumberArray {
 			 {
 				 flag=0;
 			 }
-			 j++;
-			 continue;
+			 
 		   }
 		
 		 if(flag==1)

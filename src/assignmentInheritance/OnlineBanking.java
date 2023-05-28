@@ -7,10 +7,12 @@ import java.util.*;
 public class OnlineBanking extends BankOperation {
 
 	private String password;
+	private Person person1;
 
-	public OnlineBanking(double balance, String password) {
-		super(balance);
+	public OnlineBanking(Person person, String password) {
+		super();
 		this.password = password;
+		this.person1=person;
 
 	}
 
@@ -53,24 +55,23 @@ public class OnlineBanking extends BankOperation {
 
 			case 1:
 				System.out.println("Enter deposit by  cash/cheque: ");
-			
-				
+
 				System.out.println("Enter the amount to be deposited");
 				double depositAmount = sc.nextDouble();
-				deposit(depositAmount);
+				deposit(person1, depositAmount);
 				System.out.println(" \n want to continue Enter your choice");
-				
+
 				break;
 
 			case 2:
-				System.out.println("Enter the amount to withdraw");
+				System.out.println("Enter the amount to transfer");
 				double withdrawAmount = sc.nextDouble();
-				withdraw(withdrawAmount);
+				withdraw(person1,withdrawAmount);
 				System.out.println(" \n want to continue Enter your choice");
 				break;
 
 			case 3:
-				viewBalance();
+				viewBalance(person1);
 				System.out.println(" \n want to continue Enter your choice");
 				break;
 
@@ -91,29 +92,28 @@ public class OnlineBanking extends BankOperation {
 
 	@Override
 
-	public void changePinPassword() {
+	public void changePinPassword(Person person) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter your current password");
 		String currentPassword = sc.nextLine();
-		boolean flag=false;
-		while(!flag)
-		{
-		if (currentPassword.equals(password)) {
-			System.out.println("Enter the new password:");
-			String newPassword = sc.nextLine();
-			if (!newPassword.equals(password) && newPassword.length() >= 8 && ! newPassword.matches(".*[&$@].*")) {
-				password = newPassword;
-				System.out.println("Password updated successfully ");
-				break;
+		boolean flag = false;
+		while (!flag) {
+			if (currentPassword.equals(person.getOnlineBankingPassword())) {
+				System.out.println("Enter the new password:");
+				String newPassword = sc.nextLine();
+				if (!newPassword.equals(password) && newPassword.length() >= 8 && !newPassword.matches(".*[&$@].*")) {
+					password = newPassword;
+					System.out.println("Password updated successfully ");
+					break;
+				} else {
+					System.out.println(
+							"Password is invali must be 8 characters long , should not  have &,$,@ and different from old password ");
+				}
 			} else {
-				System.out.println(
-						"Password is invali must be 8 characters long , should not  have &,$,@ and different from old password ");
+				System.out.println("Incorrect password");
+				flag = false;
+				break;
 			}
-		} else {
-			System.out.println("Incorrect password");
-			flag=false;
-			break;
-		}
 		}
 	}
 }

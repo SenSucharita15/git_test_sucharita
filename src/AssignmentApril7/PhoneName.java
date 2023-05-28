@@ -34,10 +34,11 @@ public class PhoneName {
 		if(brandname.equals("Samsung"))
 		{
 		System.out.println("Available products are");
-			for(int i=0;i<Samsung.length;i++)
-			{
-				System.out.println("  "+"  "+Samsung[i]);
-	   	    }
+			//for(int i=0;i<Samsung.length;i++)
+			//{
+				//System.out.println("  "+"  "+Samsung[i]);
+		System.out.println(Arrays.toString(Samsung));
+	   	    //}
 		}
 		else if(brandname.equals("Google"))
 				{

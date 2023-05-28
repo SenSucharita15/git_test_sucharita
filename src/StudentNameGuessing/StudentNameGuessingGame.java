@@ -30,24 +30,19 @@ public class StudentNameGuessingGame
 	
 //List<String>studentNames;
 
-	StudentNameGuessingGame() throws IOException
+	StudentNameGuessingGame() 
 	{
 		
-	List<String>studentNames=Files.readAllLines(Paths.get("C:\\Users\\santa\\OneDrive\\Desktop\\sucharita\\name%20list.docx"));	
-	int index=rand.nextInt(studentNames.size());
-	this.randomName=studentNames.get(index);
+	List<String>studentNames=Files.readStudentListFromFile(String filePath);	
+Random random=new Random();
+randomName=studentNames.get(random.nextInt(studentNames.size()));
 	}
-	//System.out.println("Welcome to the Student Name Guessing Game "));
-	//System.out.println(" \n You have 5 points to win the Game :Good Luck ");
-//	String studentNames[] = { "Aleena", "Angel", "Asha", "Clemin", "Gopesh", "Hamneet", "Jimna", "Jobin", "Jude",
-//			"kamaldeep", "Manpreets", "Manpreetk", "Mariya", "Neelam", "Namitha", "Nisha", "Parminder", "Rajat", "Rojy",
-////			"Sojan", "Sucharita", "Vindhuja" };
-//	List<String>studentNames=Files.readAllLines(Paths.get("C:\\Users\\santa\\OneDrive\\Desktop\\sucharita\\name%20list.docx"));
 	
-	
-	//int index=rand.nextInt(studentNames.size());
-	//String randomName;
-	
+	List<String>readStudentListFromFile(String filePath)
+	{
+		List<String>studentNames=new Arraylist<>();
+		
+	}
 
 	
 	void displayRandomName() {

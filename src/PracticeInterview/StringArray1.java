@@ -2,7 +2,7 @@ package PracticeInterview;
 import java.util.Scanner;
 
 
-public class StringArray {
+public class StringArray1 {
 
 	String []str= {"Raj","Ravi","Simran","Rahul"};
 	Scanner Sc=new Scanner(System.in);

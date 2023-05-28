@@ -6,14 +6,15 @@ public class PrintTable2Main {
 	{
 
 		// TODO Auto-generated method stub
-		//PrintTableof2 table=new PrintTableof2();
+		PrintTableof2 table=new PrintTableof2();
+		table.tableOfNumber();
 		//table.printMultiples();
 		
 		//PrintNumber table1=new PrintNumber();
 		//table1.numberDoWhile();
 		
-		CheckAmountAndPin a= new CheckAmountAndPin();
-		a.CheckPinCorrect();
+		//CheckAmountAndPin a= new CheckAmountAndPin();
+		//a.CheckPinCorrect();
 		
 	}
 

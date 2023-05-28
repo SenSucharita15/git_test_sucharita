@@ -6,8 +6,8 @@ public class AssignmentApril1Main {
 	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
-		//CheckIsPrime prime=new CheckIsPrime();for the Check prime number method
-		//prime.checkPrime();
+		CheckIsPrime prime=new CheckIsPrime();
+		prime.checkPrime();
 		Calculator c= new Calculator();
 		Scanner sc=new Scanner(System.in);
 		

@@ -8,7 +8,7 @@ public class StudentGameNMain {
 		String filePath="C:\\Users\\santa\\OneDrive\\Desktop\\sucharita\\STUDENTNAME.txt";
 		StudentNameGuessingGameN game=new StudentNameGuessingGameN(filePath);
 		game.displayRandomName();
-game.Play();
+game.play();
 	}
 
 }

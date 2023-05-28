@@ -1,4 +1,4 @@
-package Array;
+package ArraynArrayOfObject;
 
 public class arrayNumbers {
 	

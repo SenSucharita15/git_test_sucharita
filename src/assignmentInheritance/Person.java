@@ -7,6 +7,8 @@ public class Person {
 	private double totalFunds;
 	private int pin;
 	private String onlineBankingPassword;
+	private double balance;
+	//public String setBalance;
 
 	public Person(String accountNo, String name, double totalFunds, int pin, String onlineBankingPassword) {
 		this.accountNo = accountNo;
@@ -25,8 +27,12 @@ public class Person {
 		return name;
 	}
 
-	public double getTotalFunds() {
+	public double getBalance() {
 		return totalFunds;
+	}
+	public void setBalance(double balance)
+	{
+		this.totalFunds=balance;
 	}
 
 	public int getPin() {

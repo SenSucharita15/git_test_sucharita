@@ -41,7 +41,7 @@ public class StudentNameGuessingGameN {
 
 		}
 	}
-	public void Play()
+	public void play()
 	{
 		Scanner scanner=new Scanner(System.in);
 		int length=studentName.length();
